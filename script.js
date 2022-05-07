@@ -39,28 +39,28 @@ let termeniA = ["021", "111"];
 let termeniB = ["002", "110"];
 
 function AfisareGalois() {
+    const corpTabel = document.querySelector('table#alfabet > tbody');
+
     for (let i = 0; i < litere.length; i++) {
-        let auxString;
+        const tdLitere = document.createElement('td');
+        tdLitere.innerText = litere[i].lit;
 
-        auxString = "lit";
-        auxString += litere[i].lit;
-        let tdCaracter = document.getElementById(auxString);
-        tdCaracter.innerText = litere[i].lit;
+        const tdOrdine = document.createElement('td');
+        tdOrdine.innerText = litere[i].ord;
 
-        auxString = "ord";
-        auxString += litere[i].lit;
-        let tdFrecventa = document.getElementById(auxString);
-        tdFrecventa.innerText = litere[i].ord;
+        const tdPolinomi = document.createElement('td');
+        tdPolinomi.innerText = litere[i].pli;
 
-        auxString = "pli";
-        auxString += litere[i].lit;
-        let tdProbabilitate = document.getElementById(auxString);
-        tdProbabilitate.innerText = litere[i].pli;
+        const tdExponenti = document.createElement('td');
+        tdExponenti.innerText = litere[i].exp;
 
-        auxString = "exp";
-        auxString += litere[i].lit;
-        let tdHuffman = document.getElementById(auxString);
-        tdHuffman.innerText = litere[i].exp;
+        const linieNoua = document.createElement('tr');
+        linieNoua.appendChild(tdLitere);
+        linieNoua.appendChild(tdOrdine);
+        linieNoua.appendChild(tdPolinomi);
+        linieNoua.appendChild(tdExponenti);
+
+        corpTabel.appendChild(linieNoua);
     }
 }
 
@@ -77,7 +77,6 @@ function AdunarePli(pliA, pliB) {
         }
         newPli += rez.toString();
     }
-
     return newPli;
 }
 
@@ -105,7 +104,6 @@ function InmultirePli(pliA, pliB) {
             newPli = litere[i].pli;
         }
     }
-
     return newPli;
 }
 
